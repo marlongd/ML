@@ -20,7 +20,8 @@ class Data:
 		if data is None:
 			data = np.loadtxt(fpath, delimiter=',', dtype = str)
 
-		header = data[0]
+		header = ['buying','maint','doors','persons','lug_boot','safety','label']
+		#header = data[0]
 		index_column_dict = dict(enumerate(header))
 
 		#Python 2.7.x
@@ -29,7 +30,7 @@ class Data:
 		#Python 3+
 		column_index_dict = {v: k for k, v in index_column_dict.items()}
 
-		data = np.delete(data, 0, 0)
+		#data = np.delete(data, 0, 0)
 
 		attributes = self._set_attributes_info(index_column_dict, data)
 
